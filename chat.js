@@ -194,14 +194,29 @@ const conversation = [
 const chat = document.querySelector('.chat')
 
 for(const msg of conversation) {
+
+  const chatDOMElm = document.createElement('div');
+  
+  chatDOMElm.className = 'chatElm'
   const name = msg.name.toLowerCase();
-    chat.innerHTML += (
+    chatDOMElm.innerHTML = (
       `<div class='message message--${msg.side}'>
         <img class="message__head" src="${name}.png">
+      <div class="message__btn">
         <p class='message__text' id="textCustomer"> ${msg.text}</p>
-      </div>
+        <button class="btn-like">Like</button>
+      </div> 
+        <p class='number__likes'>0</p>
     `
     )
+
+    const btn = chatDOMElm.querySelector('.btn-like');
+    const likes = chatDOMElm.querySelector('.number__likes');
+    btn.addEventListener('click', () => {
+        likes.innerHTML = Number(likes.textContent) + 1;
+    })
+
+    chat.appendChild(chatDOMElm);
 }
 
 // document.addEventListener('DOMContentLoaded', () => {

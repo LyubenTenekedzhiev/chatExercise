@@ -57,3 +57,14 @@ body {
 .message--remote .message__text {
   background: #ddd;
 }
+
+
+.message__btn {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-like {
+  height: 2rem;
+  width: 3rem;
+}
